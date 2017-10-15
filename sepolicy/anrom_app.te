@@ -1,0 +1,25 @@
+# Generally based on untrusted_app.te
+#Rules for anrom
+
+type anrom_private_app, domain;
+app_domain(anrom_private_app)
+net_domain(anrom_private_app)
+
+# Some apps ship with shared libraries and binaries that they write out
+# to their sandbox directory and then execute.
+allow anrom_private_app app_data_file:file { rx_file_perms execmod };
+
+# Read and write /data/anrom_private/
+allow anrom_private_app anrom_data_file:file { read write getattr };
+
+# Access to /data/media.
+allow anrom_private_app media_rw_data_file:dir create_dir_perms;
+allow anrom_private_app media_rw_data_file:file create_file_perms;
+
+# Write to /cache.
+allow anrom_private_app cache_file:dir create_dir_perms;
+allow anrom_private_app cache_file:file create_file_perms;
+
+# Access to services.
+allow anrom_private_app battery_service:service_manager find;
+allow anrom_private_app app_api_service:service_manager find;

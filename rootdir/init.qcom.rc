@@ -351,6 +351,10 @@ on post-fs-data
     #Create SWAP related dirs
     mkdir /data/system/swap 0770 root system
     chmod 2770 /data/system/swap
+    
+    # test for anrom
+    mkdir /data/private_anrom 0770 root sdcard_rw
+
 
 service perfd /system/vendor/bin/perfd
    class main
