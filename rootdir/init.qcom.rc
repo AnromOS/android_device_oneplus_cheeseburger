@@ -353,7 +353,7 @@ on post-fs-data
     chmod 2770 /data/system/swap
     
     # test for anrom
-    mkdir /data/private_anrom 0770 root sdcard_rw
+    mkdir /data/private_anrom 0777 sdcard_rw sdcard_rw
 
 
 service perfd /system/vendor/bin/perfd
