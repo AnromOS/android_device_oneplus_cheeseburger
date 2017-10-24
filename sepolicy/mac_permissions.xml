@@ -9,7 +9,7 @@
   </signer>
 
   <!-- Dialer -->
-  <signer signature="@PLATFORM">
+  <signer signature="@SHARED">
     <package name="com.android.dialer" >
       <seinfo value="dialer" />
     </package>
