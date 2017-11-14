@@ -1,3 +1,6 @@
 user=_app seinfo=anromapp name=com.example.rom.testrom* domain=anrom_private_app type=app_data_file
 user=_app seinfo=dialer name=com.android.dialer domain=anrom_private_app type=app_data_file
 user=_app seinfo=messaging name=com.android.messaging domain=anrom_private_app type=app_data_file
+user=_app seinfo=topca.aenterprise name=com.topca.aenterprise domain=anrom_private_app type=app_data_file
+user=_app seinfo=tcax.aenterprise name=com.tcax.aenterprise domain=anrom_private_app type=app_data_file
+user=_app seinfo=tcax.aegzdemo name=com.tcax.aegzdemo domain=anrom_private_app type=app_data_file
