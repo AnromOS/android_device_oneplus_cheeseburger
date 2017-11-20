@@ -14,18 +14,24 @@ allow anrom_private_app anrom_data_file:file { read write getattr };
 allow anrom_private_app anrom_data_file:dir create_dir_perms;
 allow anrom_private_app anrom_data_file:file create_file_perms;
 
-allow priv_app anrom_data_file:file { read write getattr };
-allow priv_app anrom_data_file:dir create_dir_perms;
-allow priv_app anrom_data_file:file create_file_perms;
+#allow priv_app anrom_data_file:file { read write getattr };
+#allow priv_app anrom_data_file:dir create_dir_perms;
+#allow priv_app anrom_data_file:file create_file_perms;
 
 r_dir_file(anrom_private_app, anrom_data_file);
-r_dir_file(priv_app, anrom_data_file);
+#r_dir_file(priv_app, anrom_data_file);
+
+# untrusted app should not allowed.
+neverallow {appdomain -anrom_private_app}  anrom_data_file:file { read write getattr setattr link execute append rename};
+neverallow {appdomain -anrom_private_app}  anrom_data_file:dir { open search rmdir execmod};
+neverallow {appdomain -anrom_private_app}  anrom_data_file:dir create_dir_perms;
+neverallow {appdomain -anrom_private_app}  anrom_data_file:file create_file_perms;
 
 # Access to /data/media.
 allow anrom_private_app media_rw_data_file:dir create_dir_perms;
 allow anrom_private_app media_rw_data_file:file create_file_perms;
-allow priv_app media_rw_data_file:dir create_dir_perms;
-allow priv_app media_rw_data_file:file create_file_perms;
+#allow priv_app media_rw_data_file:dir create_dir_perms;
+#allow priv_app media_rw_data_file:file create_file_perms;
 
 # Write to /cache.
 allow anrom_private_app cache_file:dir create_dir_perms;
